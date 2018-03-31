@@ -5,3 +5,6 @@ div#workspace-container, .kix-appview-editor {
   -o-background-size: cover;
   background-size: cover;
 }
+.left-sidebar-container {
+  background-color: white;
+}
