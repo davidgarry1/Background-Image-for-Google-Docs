@@ -2,9 +2,11 @@
 function save_options() {
   var topics = document.getElementById('topics').value;
   var ultraHD = document.getElementById('uhd').checked;
+  var feat = document.getElementById('feat').checked;
   chrome.storage.sync.set({
     photoTopics: topics,
-    definition: ultraHD
+    definition: ultraHD,
+    featured: feat
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -20,11 +22,13 @@ function save_options() {
 function restore_options() {
   // Use default value color = 'red' and likesColor = true.
   chrome.storage.sync.get({
-    photoTopics: 'nature,ocean,scenic,paradise,tropics',
-    definition: false
+    photoTopics: 'nature,ocean,scenic,paradise,tropics,sky',
+    definition: false,
+    featured: true
   }, function(items) {
     document.getElementById('topics').value = items.photoTopics;
     document.getElementById('uhd').checked = items.definition;
+    document.getElementById('feat').checked = items.featured;
   });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
