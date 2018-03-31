@@ -20,7 +20,7 @@ function save_options() {
 function restore_options() {
   // Use default value color = 'red' and likesColor = true.
   chrome.storage.sync.get({
-    photoTopics: 'nature,ocean,animals,tropical,colorful',
+    photoTopics: 'nature,ocean,scenic,paradise,tropics',
     definition: false
   }, function(items) {
     document.getElementById('topics').value = items.photoTopics;

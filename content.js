@@ -1,5 +1,5 @@
 chrome.storage.sync.get({
-  photoTopics: 'nature,ocean,animals,tropical,colorful',
+  photoTopics: 'nature,ocean,scenic,paradise,tropics',
   definition: false
 }, function(items) {
   var url = "https://source.unsplash.com/1500x800/?";
