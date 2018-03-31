@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Background Image for Google Docs™ & Slides™",
 	"short_name": "Background Img",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"description": "Add a beautiful image to Google Docs™ and Google Slides™ background while editing. Not affiliated with Google.",
 	"icons": {
 		"128": "logo.png"
