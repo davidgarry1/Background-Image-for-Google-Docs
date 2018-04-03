@@ -1,20 +1,30 @@
 chrome.storage.sync.get({
 	photoTopics: 'nature,ocean,scenic,paradise,tropics,sky',
 	definition: false,
-	featured: true
+	featured: true,
+	photoURL: '',
+	slidesEnabled: true,
+	docsEnabled: true,
+	type: 'curated'
 }, function(items) {
-	var url = "https://source.unsplash.com/1500x800/?";
-	if (items.definition) {
-		url = "https://source.unsplash.com/3300x1600/?";
+	var url = "";
+	if(items.type == 'curated'){
+		url = "https://source.unsplash.com/1600x900/?";
+		if (items.definition) {
+			url = "https://source.unsplash.com/3800x2000/?";
+		}
+		url += items.photoTopics;
+		if (items.featured) {
+			url += ",featured";
+		}
+	} else {
+		url = items.photoURL;
 	}
-	url += items.photoTopics;
-	if (items.featured) {
-		url += ",featured";
-	}
-	if (document.getElementById("workspace-container") != null) {
+	//Set background
+	if (items.slidesEnabled && document.getElementById("workspace-container") != null) {
 		document.getElementById("workspace-container").style.backgroundImage = "url('" + url + "')";
 	}
-	if (document.getElementsByClassName("kix-appview-editor").length != 0) {
+	if (items.docsEnabled && document.getElementsByClassName("kix-appview-editor").length != 0) {
 		for (var i = 0; i < document.getElementsByClassName("kix-appview-editor").length; i++) {
 			document.getElementsByClassName("kix-appview-editor")[i].style.backgroundImage = "url('" + url + "')";
 		}
