@@ -11,7 +11,7 @@ chrome.storage.sync.get({
 	if(items.type == 'curated'){
 		url = "https://source.unsplash.com/1600x900/?";
 		if (items.definition) {
-			url = "https://source.unsplash.com/3240x2160/?";
+			url = "https://source.unsplash.com/3200x1800/?";
 		}
 		url += items.photoTopics;
 		if (items.featured) {
