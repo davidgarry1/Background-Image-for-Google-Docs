@@ -1,3 +1,7 @@
+//Google analytics
+
+//This is currently not very sophisticated. Can be upgraded to include tracking of more metrics, like what settings users are using and what categories people like the most
+
 var _AnalyticsCode = 'UA-116922156-1';
 
 var _gaq = _gaq || [];

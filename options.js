@@ -1,3 +1,4 @@
+//This script is run on the options page and the docs/slides pages, so we add a unique identifier to the options.html page to ensure that the following script isn't executed on the google drive pages
 if (document.getElementById("unqiueidentify9823r") != null) {
 	setTimeout(function() {
 		$("#unqiueidentify9823r").fadeIn();
@@ -14,6 +15,7 @@ if (document.getElementById("unqiueidentify9823r") != null) {
 	$('#imgurl').on('keyup', function() {
 		processImage(this);
 	});
+	
 	// Saves options to chrome.storage
 	function save_options() {
 		var topics = document.getElementById('topics').value;
@@ -49,6 +51,7 @@ if (document.getElementById("unqiueidentify9823r") != null) {
 			});
 		}
 	}
+
 	// Update status to let user know options were saved.
 	function updateStatus() {
 		var status = document.getElementById('status');
@@ -57,6 +60,7 @@ if (document.getElementById("unqiueidentify9823r") != null) {
 			status.innerHTML = '&nbsp;';
 		}, 750);
 	}
+
 	// Restores select box and checkbox state using the preferences
 	// stored in chrome.storage.
 	function restore_options() {
@@ -87,6 +91,7 @@ if (document.getElementById("unqiueidentify9823r") != null) {
 		});
 	}
 
+	//Change the current tab
 	function openC(id, cityName) {
 		var i, tabcontent, tablinks;
 		tabcontent = document.getElementsByClassName("tabcontent");
@@ -102,6 +107,7 @@ if (document.getElementById("unqiueidentify9823r") != null) {
 		updateSaveButtonEnabledStatus();
 	}
 
+	//Return the current tab type
 	function getActiveTabType() {
 		var tablinks = document.getElementsByClassName("tablinks");
 		for (var i = 0; i < tablinks.length; i++) {
@@ -112,10 +118,12 @@ if (document.getElementById("unqiueidentify9823r") != null) {
 		}
 	}
 
+	//Used before I decided to import jQuery, will remove later
 	function hasClass(target, className) {
 		return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
 	}
 
+	//Test to see if an image url is valid
 	function testImage(url, timeoutT) {
 		return new Promise(function(resolve, reject) {
 			var timeout = timeoutT || 4000;
@@ -137,8 +145,11 @@ if (document.getElementById("unqiueidentify9823r") != null) {
 			img.src = url;
 		});
 	}
+
+	//boolean to store whether or not the user has entered a valid url for custom image
 	var imageAcceptedStatus = false;
 
+	//Update the user about the status of the url they have entered
 	function record(url, result) {
 		if (result == "error") {
 			document.getElementById('image-result').innerHTML = "<span class='" + result + "'><b>That url isn't registering as an image that can be used.</b><br><br></span>Please try another image url.";
@@ -161,10 +172,12 @@ if (document.getElementById("unqiueidentify9823r") != null) {
 		updateSaveButtonEnabledStatus();
 	}
 
+	//helper method for processing image
 	function runImage(url) {
 		testImage(url).then(record.bind(null, url), record.bind(null, url));
 	}
 
+	//Wrapper to be called
 	function processImage(element) {
 		imageAcceptedStatus = false;
 		updateSaveButtonEnabledStatus();
@@ -174,6 +187,7 @@ if (document.getElementById("unqiueidentify9823r") != null) {
 		}, 50);
 	}
 
+	//disable the save button until the image url is valid or they select curated
 	function updateSaveButtonEnabledStatus() {
 		if (getActiveTabType() == "curated" || (getActiveTabType() == "custom" && imageAcceptedStatus)) {
 			$("#save").prop("disabled", false);
@@ -181,6 +195,10 @@ if (document.getElementById("unqiueidentify9823r") != null) {
 			$("#save").prop("disabled", true);
 		}
 	}
+
+	//restore options on page startup
 	document.addEventListener('DOMContentLoaded', restore_options);
+
+	//have options updated when save is clicked
 	document.getElementById('save').addEventListener('click', save_options);
 }
