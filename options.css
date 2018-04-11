@@ -8,8 +8,13 @@ html, body {
   font-family: 'Josefin Sans';
   font-weight: 300;
 }
-.small, .small a {
+.small {
   font-size: .8em;
+  color: grey;
+  text-decoration: none;
+  font-style: italic;
+}
+.small a {
   color: grey;
   text-decoration: none;
   font-style: italic;
