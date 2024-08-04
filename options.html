@@ -1,49 +1,57 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Options for Background Image</title>
-	<link href="logo.png" rel="shortcut icon">
-	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400|Share+Tech+Mono" rel="stylesheet">
-	<link href="options.css" rel="stylesheet">
-</head>
-<body>
-	<div id="unqiueidentify9823r" class="center" style="display:none;">
-		<div class="booster">
-			<b>Background Image for Google Docs & Slides</b>
-		</div><br>
-		<div class="half-width">
-			<div class="tab">
-				<button id="buttonA" class="tablinks curated">Curated</button>
-				<button id="buttonB" class="tablinks custom">Custom</button>
-			</div>
-			<div class="tabcontent" id="curated">
-				<p>Types of images you would like to see (comma seperated):</p>
-				<textarea id="topics"></textarea>
-				<p><label><input id="uhd" type="checkbox"> Ultra HD (will take longer to load)</label><br>
-				<label><input checked id="feat" type="checkbox"> Featured Only (higher quality images, but less variety)</label></p>
-			</div>
-			<div class="tabcontent" id="custom">
-				<p>Please enter the full image url below and click save.</p><input class="url-input" id="imgurl" name="customurl" type="url" value=""><br>
-				<br>
-				<div id="image-result">
-					<p></p>
-				</div>
-			</div>
-			<p>
-			<label>Enable on <input checked id="docs-enabled" type="checkbox"> Docs</label>
-			<label><input checked id="slides-enabled" type="checkbox"> Slides</label>
-		</p>
-		</div><button class="save" id="save">Save</button>
-		<div id="status">&nbsp;</div><br>
-		<div class="small">
-			By <a href="http://dgarry.com">David Garry</a>. Photos from <a href="https://unsplash.com/">Unsplash</a>.
-		</div>
-		<script src="jquery.js" type="text/javascript">
-		</script>
-		<script src="options.js" type="text/javascript">
-		</script>
-		<script src="ga.js" type="text/javascript">
-		</script>
-	</div>
-</body>
+
+    <head>
+        <title>Options for Background Image</title>
+        <link href="logo.png" rel="shortcut icon">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400|Share+Tech+Mono" rel="stylesheet">
+        <link href="options.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="unqiueidentify9823r" class="center" style="display:none;">
+            <div class="booster">
+                <b>Background Image for Google Docs & Slides</b>
+            </div><br>
+            <div class="half-width">
+                <div class="tab">
+                    <button id="buttonA" class="tablinks curated">Curated</button>
+                    <button id="buttonB" class="tablinks custom">Custom</button>
+                </div>
+                <div class="tabcontent" id="curated">
+                    <p>Types of images you would like to see (comma seperated):<br>
+                        <i>
+                            <div class="small">Unfortunately with <a target="_blank" href="https://changelog.unsplash.com/deprecations/2021/11/25/source-deprecation.html">Unsplash Source deprecation</a>, these keywords aren't accurate. I will work on that in a future update.</div>
+                        </i>
+                    </p>
+                    <textarea id="topics"></textarea>
+                    <p>
+                        <label><input id="uhd" type="checkbox"> Ultra HD</label><br>
+                        <label><input checked id="feat" type="checkbox"> Grayscale</label><br>
+                        <label><input checked id="blur" type="checkbox"> Blurred </label>
+                    </p>
+                </div>
+                <div class="tabcontent" id="custom">
+                    <p>Please enter the full image url below and click save.</p><input class="url-input" id="imgurl" name="customurl" type="url" value=""><br>
+                    <br>
+                    <div id="image-result">
+                        <p></p>
+                    </div>
+                </div>
+                <p>
+                    <label>Enable on <input checked id="docs-enabled" type="checkbox"> Docs</label>
+                    <label><input checked id="slides-enabled" type="checkbox"> Slides</label>
+                </p>
+            </div><button class="save" id="save">Save</button>
+            <div id="status">&nbsp;</div><br>
+            <div class="small">
+                By <a href="http://dgarry.com">David Garry</a>. Photos from <a href="https://picsum.photos/">picsum.photos</a>.
+            </div>
+            <script src="jquery.js" type="text/javascript">
+            </script>
+            <script src="options.js" type="text/javascript">
+            </script>
+        </div>
+    </body>
+
 </html>
